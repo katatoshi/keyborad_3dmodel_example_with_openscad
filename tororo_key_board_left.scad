@@ -14,15 +14,15 @@ y4 = -3 * w; // row4
 y5 = -4 * w; // row5
 
 difference() {    
-    set_plate();
-    set_key_switches();
+    base_top_plate();
+    key_switches();
     unit_cube(7 * w + padding_x_r, y1 + w);
     unit_cube(7 * w + padding_x_r, y1);
     unit_cube((1.5 + 5) * w + padding_x_r, y2);
     unit_cube((1.75 + 5) * w + padding_x_r, y3);
 }
 
-module set_plate() {
+module base_top_plate() {
     plate_w_x = padding_x_l + w / 2 + 6.75 * w + padding_x_r;
     plate_w_y = padding_y_t + w / 2 + 4.5 * w + padding_y_b;
     plate_h = 4;
@@ -32,7 +32,7 @@ module set_plate() {
     }
 }
 
-module set_key_switches() {
+module key_switches() {
     // row 1
     for (i = [0:6]) {
         key_switch(i * w, y1);
