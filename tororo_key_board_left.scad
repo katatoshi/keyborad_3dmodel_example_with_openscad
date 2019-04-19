@@ -1,7 +1,9 @@
 w = 19.05;
-    
-set_plate();
-set_key_switches();
+
+difference() {    
+    set_plate();
+    set_key_switches();
+}
 
 module set_plate() {
     plate_w_x = 4 + w / 2 + 6.75 * w + 4;
