@@ -7,7 +7,7 @@ plate_padding_x_r = 4; // plate padding x right
 plate_padding_y_t = 4; // plate padding y top
 plate_padding_y_b = 4; // plate padding y bottom
 
-y1 = 0;      // row1
+y1 = 0;           // row1
 y2 = -w_unit;     // row2
 y3 = -2 * w_unit; // row3
 y4 = -3 * w_unit; // row4
