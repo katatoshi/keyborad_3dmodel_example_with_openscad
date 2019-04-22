@@ -17,7 +17,7 @@ plate_w_x = plate_padding_x_l + w_unit / 2 + 6.75 * w_unit + plate_padding_x_r;
 plate_w_y = plate_padding_y_t + w_unit / 2 + 4.5 * w_unit + plate_padding_y_b;
 plate_h = 4;
 
-foot_w = 6;
+foot_w = 4;
 foot_h = 30;
 
 keyboard_h_low = 10;
