@@ -7,6 +7,10 @@ plate_padding_x_r = 4; // plate padding x right
 plate_padding_y_t = 4; // plate padding y top
 plate_padding_y_b = 4; // plate padding y bottom
 
+plate_w_x = plate_padding_x_l + w_unit / 2 + 8 * w_unit + plate_padding_x_r;
+plate_w_y = plate_padding_y_t + w_unit / 2 + 4.5 * w_unit + plate_padding_y_b;
+plate_h = 4;
+
 y1 = 0;           // row1
 y2 = -w_unit;     // row2
 y3 = -2 * w_unit; // row3
@@ -29,10 +33,6 @@ module keyboard_plate() {
 }
 
 module plate() {
-    plate_w_x = plate_padding_x_l + w_unit / 2 + 8 * w_unit + plate_padding_x_r;
-    plate_w_y = plate_padding_y_t + w_unit / 2 + 4.5 * w_unit + plate_padding_y_b;
-    plate_h = 4;
-
     translate([-plate_w_x + w_unit / 2 + plate_padding_x_r, -plate_w_y + plate_padding_y_t + w_unit / 2, -plate_h]) {
         cube([plate_w_x, plate_w_y, plate_h], center = false);
     }
