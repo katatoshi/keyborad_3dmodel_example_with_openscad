@@ -20,9 +20,38 @@ plate_h = 4;
 foot_w = 6;
 foot_h = 30;
 
-union() {
-    keyboard_plate();
-    foot();
+keyboard_h_low = 10;
+keyboard_h_high = 25;
+
+plate_rotation_x = asin((keyboard_h_high - keyboard_h_low) / plate_w_y);
+
+keyboard();
+
+module keyboard() {
+    difference() {
+        untranslate_plate_origin_in_yz_plane() {
+            rotate([plate_rotation_x, 0, 0]) {
+                translate_plate_origin_in_yz_plane() {
+                    union() {
+                        keyboard_plate();
+                        foot();
+                    }
+                }
+            }
+        }
+        base_cube();
+    }
+}
+
+module base_cube() {
+    base_cube_h = 100;
+    base_cube_extension_y = 10;
+    translate_from_origin_to_plate_left_bottom() {
+        dz = -(plate_w_y * (keyboard_h_high + keyboard_h_low) * sin(plate_rotation_x) / (keyboard_h_high - keyboard_h_low) - plate_h * cos(plate_rotation_x)) / 2;
+        translate([0, 0, dz - base_cube_h]) {
+            cube([plate_w_x, plate_w_y + base_cube_extension_y, base_cube_h], center = false);
+        } 
+    }
 }
 
 module foot() {
@@ -162,6 +191,22 @@ module unit_cube(x, y) {
 }
 
 // operator modules
+
+module translate_plate_origin_in_yz_plane() {
+    translate([0, plate_w_y / 2, plate_h / 2]) {
+        translate([0, -w_unit / 2 - plate_padding_y_t, 0]) {
+            children();
+        }
+    }
+}
+
+module untranslate_plate_origin_in_yz_plane() {
+    translate([0, w_unit / 2 + plate_padding_y_t, 0]) {
+        translate([0, -plate_w_y / 2, -plate_h / 2]) {
+            children();
+        }
+    }
+}
 
 module translate_from_origin_to_plate_right_bottom() {
     translate_from_origin_to_plate_left_bottom() {
