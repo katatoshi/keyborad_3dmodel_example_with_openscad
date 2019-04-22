@@ -13,15 +13,19 @@ y3 = -2 * w_unit; // row3
 y4 = -3 * w_unit; // row4
 y5 = -4 * w_unit; // row5
 
-difference() {    
-    plate();
-    key_switches();
-    unit_cube(-8 * w_unit - plate_padding_x_l, y1 + w_unit);
-    unit_cube(-8 * w_unit - plate_padding_x_l, y1);
-    unit_cube(-(2.25 + 6) * w_unit - plate_padding_x_l, y3);
-    unit_cube(-(2.75 + 5) * w_unit - plate_padding_x_l, y4);
-    unit_cube(-(2.75 + 5) * w_unit - plate_padding_x_l, y5);
-    unit_cube(-(2.75 + 5) * w_unit - plate_padding_x_l, y5 - w_unit);
+keyboard_plate();
+
+module keyboard_plate() {
+    difference() {    
+        plate();
+        key_switches();
+        unit_cube(-8 * w_unit - plate_padding_x_l, y1 + w_unit);
+        unit_cube(-8 * w_unit - plate_padding_x_l, y1);
+        unit_cube(-(2.25 + 6) * w_unit - plate_padding_x_l, y3);
+        unit_cube(-(2.75 + 5) * w_unit - plate_padding_x_l, y4);
+        unit_cube(-(2.75 + 5) * w_unit - plate_padding_x_l, y5);
+        unit_cube(-(2.75 + 5) * w_unit - plate_padding_x_l, y5 - w_unit);
+    }
 }
 
 module plate() {
