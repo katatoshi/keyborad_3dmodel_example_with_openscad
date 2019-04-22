@@ -52,11 +52,25 @@ module pro_micro_house_case() {
                 cylinder(r = spacer_scale_inverse * spacer_r, h = spacer_scale_inverse * padding_z_t, center = true);
             }
         }
-        translate([0, trrs_y, 0]) {
-            cube([padding_x, trrs_w_y, trrs_h], center = false);
-        }
-        translate([pro_micro_house_w_x + padding_x, trrs_y, 0]) {
-            cube([padding_x, trrs_w_y, trrs_h], center = false);
-        }
+        trrs_cube_l(padding_x);
+        trrs_cube_r(padding_x);
+    }
+}
+
+module pro_micro_cube(y, w_y) {
+    translate([padding_x, y - w_y, 0]) {
+        cube([pro_micro_house_w_x, w_y, pro_micro_house_h], center = false);
+    }
+}
+
+module trrs_cube_l(w_x) {
+    translate([-w_x + padding_x, trrs_y, 0]) {
+        cube([w_x, trrs_w_y, trrs_h], center = false);
+    }
+}
+
+module trrs_cube_r(w_x) {
+    translate([pro_micro_house_w_x + padding_x, trrs_y, 0]) {
+        cube([w_x, trrs_w_y, trrs_h], center = false);
     }
 }
