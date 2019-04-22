@@ -57,7 +57,6 @@ module key_switches() {
     }
     
     // row 5
-
     key_switch(1.5 * w_unit, y5);
     key_switch(2.75 * w_unit, y5);
     key_switch(4 * w_unit, y5);
