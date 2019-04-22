@@ -2,10 +2,10 @@ use <key_switch.scad>
 
 w_unit = 19.05; // unit width
 
-padding_x_l = 4; // padding x left 
-padding_x_r = 4; // padding x right
-padding_y_t = 4; // padding y top
-padding_y_b = 4; // padding y bottom
+plate_padding_x_l = 4; // plate padding x left 
+plate_padding_x_r = 4; // plate padding x right
+plate_padding_y_t = 4; // plate padding y top
+plate_padding_y_b = 4; // plate padding y bottom
 
 y1 = 0;      // row1
 y2 = -w_unit;     // row2
@@ -16,18 +16,18 @@ y5 = -4 * w_unit; // row5
 difference() {    
     base_top_plate();
     key_switches();
-    unit_cube(7 * w_unit + padding_x_r, y1 + w_unit);
-    unit_cube(7 * w_unit + padding_x_r, y1);
-    unit_cube((1.5 + 5) * w_unit + padding_x_r, y2);
-    unit_cube((1.75 + 5) * w_unit + padding_x_r, y3);
+    unit_cube(7 * w_unit + plate_padding_x_r, y1 + w_unit);
+    unit_cube(7 * w_unit + plate_padding_x_r, y1);
+    unit_cube((1.5 + 5) * w_unit + plate_padding_x_r, y2);
+    unit_cube((1.75 + 5) * w_unit + plate_padding_x_r, y3);
 }
 
 module base_top_plate() {
-    plate_w_x = padding_x_l + w_unit / 2 + 6.75 * w_unit + padding_x_r;
-    plate_w_y = padding_y_t + w_unit / 2 + 4.5 * w_unit + padding_y_b;
+    plate_w_x = plate_padding_x_l + w_unit / 2 + 6.75 * w_unit + plate_padding_x_r;
+    plate_w_y = plate_padding_y_t + w_unit / 2 + 4.5 * w_unit + plate_padding_y_b;
     plate_h = 4;
 
-    translate([-w_unit / 2 - padding_x_l, -plate_w_y + padding_y_t + w_unit / 2, -plate_h]) {
+    translate([-w_unit / 2 - plate_padding_x_l, -plate_w_y + plate_padding_y_t + w_unit / 2, -plate_h]) {
         cube([plate_w_x, plate_w_y, plate_h], center = false);
     }
 }
