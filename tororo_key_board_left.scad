@@ -14,7 +14,7 @@ y4 = -3 * w_unit; // row4
 y5 = -4 * w_unit; // row5
 
 difference() {    
-    base_top_plate();
+    plate();
     key_switches();
     unit_cube(7 * w_unit + plate_padding_x_r, y1 + w_unit);
     unit_cube(7 * w_unit + plate_padding_x_r, y1);
@@ -22,7 +22,7 @@ difference() {
     unit_cube((1.75 + 5) * w_unit + plate_padding_x_r, y3);
 }
 
-module base_top_plate() {
+module plate() {
     plate_w_x = plate_padding_x_l + w_unit / 2 + 6.75 * w_unit + plate_padding_x_r;
     plate_w_y = plate_padding_y_t + w_unit / 2 + 4.5 * w_unit + plate_padding_y_b;
     plate_h = 4;
