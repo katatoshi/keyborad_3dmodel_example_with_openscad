@@ -27,9 +27,9 @@ plate_rotation_x = asin((keyboard_h_high - keyboard_h_low) / plate_w_y);
 
 base_cube_dz = -(plate_w_y * (keyboard_h_high + keyboard_h_low) * sin(plate_rotation_x) / (keyboard_h_high - keyboard_h_low) - plate_h * cos(plate_rotation_x)) / 2;
 
-keyboard();
+keyboard_case();
 
-module keyboard() {
+module keyboard_case() {
     difference() {
         untranslate_plate_origin_in_yz_plane() {
             rotate([plate_rotation_x, 0, 0]) {
