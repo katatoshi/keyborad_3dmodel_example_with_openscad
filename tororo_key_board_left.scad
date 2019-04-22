@@ -25,6 +25,8 @@ keyboard_h_high = 25;
 
 plate_rotation_x = asin((keyboard_h_high - keyboard_h_low) / plate_w_y);
 
+base_cube_dz = -(plate_w_y * (keyboard_h_high + keyboard_h_low) * sin(plate_rotation_x) / (keyboard_h_high - keyboard_h_low) - plate_h * cos(plate_rotation_x)) / 2;
+
 keyboard();
 
 module keyboard() {
@@ -47,8 +49,7 @@ module base_cube() {
     base_cube_h = 100;
     base_cube_extension_y = 10;
     translate_from_origin_to_plate_left_bottom() {
-        dz = -(plate_w_y * (keyboard_h_high + keyboard_h_low) * sin(plate_rotation_x) / (keyboard_h_high - keyboard_h_low) - plate_h * cos(plate_rotation_x)) / 2;
-        translate([0, 0, dz - base_cube_h]) {
+        translate([0, 0, base_cube_dz - base_cube_h]) {
             cube([plate_w_x, plate_w_y + base_cube_extension_y, base_cube_h], center = false);
         } 
     }
