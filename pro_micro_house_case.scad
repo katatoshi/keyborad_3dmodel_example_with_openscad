@@ -21,6 +21,9 @@ trrs_y = 42.5;
 trrs_w_y = 6;
 trrs_h = 5;
 
+trrs_cube_w_y = 6;
+trrs_cube_h = 6;
+
 pro_micro_house_case();
 
 module pro_micro_house_case() {
@@ -52,8 +55,12 @@ module pro_micro_house_case() {
                 cylinder(r = spacer_scale_inverse * spacer_r, h = spacer_scale_inverse * padding_z_t, center = true);
             }
         }
-        trrs_cube_l(padding_x);
-        trrs_cube_r(padding_x);
+        translate([0, trrs_y, 0]) {
+            cube([padding_x, trrs_w_y, trrs_h], center = false);
+        }
+        translate([pro_micro_house_w_x + padding_x, trrs_y, 0]) {
+            cube([padding_x, trrs_w_y, trrs_h], center = false);
+        }
     }
 }
 
@@ -65,12 +72,12 @@ module pro_micro_cube(y, w_y) {
 
 module trrs_cube_l(w_x) {
     translate([-w_x + padding_x, trrs_y, 0]) {
-        cube([w_x, trrs_w_y, trrs_h], center = false);
+        cube([w_x, trrs_cube_w_y, trrs_cube_h], center = false);
     }
 }
 
 module trrs_cube_r(w_x) {
     translate([pro_micro_house_w_x + padding_x, trrs_y, 0]) {
-        cube([w_x, trrs_w_y, trrs_h], center = false);
+        cube([w_x, trrs_cube_w_y, trrs_cube_h], center = false);
     }
 }
