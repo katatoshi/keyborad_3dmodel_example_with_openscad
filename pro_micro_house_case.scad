@@ -22,6 +22,11 @@ trrs_y = 42.5;
 trrs_w_y = 6;
 trrs_h = 6;
 
+reset_switch_x = 6.5;
+reset_switch_y = 38;
+reset_switch_w_x = 7;
+reset_switch_w_y = 2;
+
 pro_micro_house_case();
 
 module pro_micro_house_case() {
@@ -52,6 +57,9 @@ module pro_micro_house_case() {
             scale(1 / spacer_scale_inverse) {
                 cylinder(r = spacer_scale_inverse * spacer_r, h = spacer_scale_inverse * padding_z_b, center = true);
             }
+        }
+        translate([padding_x + reset_switch_x, reset_switch_y, 0]) {
+            cube([reset_switch_w_x, reset_switch_w_y, padding_z_b], center = false);
         }
         translate([0, trrs_y, spacer_h + padding_z_b - trrs_h]) {
             cube([padding_x, trrs_w_y, trrs_h], center = false);
