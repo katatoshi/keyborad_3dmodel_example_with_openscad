@@ -87,9 +87,10 @@ module foot() {
                     cube([foot_w, w_y, foot_h], center = false);
                 }
             }
+            margin_y = 2;
             translate_from_origin_to_plate_right_row2_top() {
                 translate([-foot_w, 0, dz]) {
-                    cube([foot_w + 3 * w_unit / 16 + plate_padding_x_r, w_unit / 8, foot_h], center = false);
+                    cube([foot_w + 3 * w_unit / 16 + plate_padding_x_r, w_unit / 8 - margin_y, foot_h], center = false);
                 }
             }
         }
@@ -102,9 +103,10 @@ module foot() {
                     cube([foot_w, w_y, foot_h], center = false);
                 }
             }
+            margin_y = 2;
             translate_from_origin_to_plate_right_row2_top() {
-                translate([-foot_w, -w_unit - w_unit / 8, dz]) {
-                    cube([foot_w + plate_padding_x_r, w_unit / 8, foot_h], center = false);
+                translate([-foot_w, -w_unit - w_unit / 8 + margin_y, dz]) {
+                    cube([foot_w + plate_padding_x_r, w_unit / 8 - margin_y, foot_h], center = false);
                 }
             }
         }
@@ -117,9 +119,10 @@ module foot() {
                     cube([foot_w, w_y, foot_h], center = false);
                 }
             }
+            margin_y = 2;
             translate_from_origin_to_plate_right_row3_top() {
-                translate([-foot_w, -w_unit - w_unit / 8, dz]) {
-                    cube([foot_w + w_unit / 4 + plate_padding_x_r, w_unit / 8, foot_h], center = false);
+                translate([-foot_w, -w_unit - w_unit / 8 + margin_y, dz]) {
+                    cube([foot_w + w_unit / 4 + plate_padding_x_r, w_unit / 8 - margin_y, foot_h], center = false);
                 }
             }
         }
