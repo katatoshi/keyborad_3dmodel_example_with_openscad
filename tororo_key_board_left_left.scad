@@ -277,54 +277,6 @@ module untranslate_plate_origin_in_yz_plane() {
     }
 }
 
-module translate_from_origin_to_plate_right_bottom() {
-    translate_from_origin_to_plate_left_bottom() {
-        translate([plate_w_x, 0, 0]) {
-            children();
-        }
-    }
-}
-
-module translate_from_origin_to_plate_right_row4_top() {
-    translate_from_origin_to_plate_left_top() {
-        translate([plate_w_x, -plate_padding_y_t - 3 * w_unit, 0]) {
-            children();
-        }
-    }
-}
-
-module translate_from_origin_to_plate_right_row3_top() {
-    translate_from_origin_to_plate_left_top() {
-        translate([
-            plate_padding_x_l + (1.75 + 5) * w_unit + plate_padding_x_r,
-            -plate_padding_y_t - 2 * w_unit,
-            0
-        ]) {
-            children();
-        }
-    }
-}
-
-module translate_from_origin_to_plate_right_row2_top() {
-    translate_from_origin_to_plate_left_top() {
-        translate([
-            plate_padding_x_l + (1.5 + 5) * w_unit + plate_padding_x_r,
-            -plate_padding_y_t - w_unit,
-            0
-        ]) {
-            children();
-        }
-    }
-}
-
-module translate_from_origin_to_plate_right_row1_top() {
-    translate_from_origin_to_plate_left_top() {
-        translate([plate_w_x - w_unit / 4, 0, 0]) {
-            children();
-        }
-    }
-}
-
 module translate_from_origin_to_plate_left_bottom() {
     translate_from_origin_to_plate_left_top() {
         translate([0, -plate_w_y, 0]) {

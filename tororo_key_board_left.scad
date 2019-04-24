@@ -107,62 +107,6 @@ module foot() {
                 cube([plate_w_x, foot_w, foot_h], center = false);
             }
         }
-
-        // right row1
-        union() {
-            translate_from_origin_to_plate_right_row1_top() {
-                w_y = w_unit + plate_padding_y_t;
-                translate([-foot_w, -w_y, dz]) {
-                    cube([foot_w, w_y, foot_h], center = false);
-                }
-            }
-            margin_y = 2;
-            translate_from_origin_to_plate_right_row2_top() {
-                translate([-foot_w, 0, dz]) {
-                    cube([foot_w + 3 * w_unit / 16 + plate_padding_x_r, w_unit / 8 - margin_y, foot_h], center = false);
-                }
-            }
-        }
-
-        // right row2
-        union() {
-            translate_from_origin_to_plate_right_row2_top() {
-                w_y = w_unit;
-                translate([-foot_w, -w_y, dz]) {
-                    cube([foot_w, w_y, foot_h], center = false);
-                }
-            }
-            margin_y = 2;
-            translate_from_origin_to_plate_right_row2_top() {
-                translate([-foot_w, -w_unit - w_unit / 8 + margin_y, dz]) {
-                    cube([foot_w + plate_padding_x_r, w_unit / 8 - margin_y, foot_h], center = false);
-                }
-            }
-        }
-
-        // right row3
-        union() {
-            translate_from_origin_to_plate_right_row3_top() {
-                w_y = w_unit;
-                translate([-foot_w, -w_y, dz]) {
-                    cube([foot_w, w_y, foot_h], center = false);
-                }
-            }
-            margin_y = 2;
-            translate_from_origin_to_plate_right_row3_top() {
-                translate([-foot_w, -w_unit - w_unit / 8 + margin_y, dz]) {
-                    cube([foot_w + w_unit / 4 + plate_padding_x_r, w_unit / 8 - margin_y, foot_h], center = false);
-                }
-            }
-        }
-
-        // right row4
-        translate_from_origin_to_plate_right_row4_top() {
-            w_y = 2 * w_unit + plate_padding_y_b;
-            translate([-foot_w, -w_y, dz]) {
-                cube([foot_w, w_y, foot_h], center = false);
-            }
-        }
     }
 }
 
@@ -235,54 +179,6 @@ module translate_plate_origin_in_yz_plane() {
 module untranslate_plate_origin_in_yz_plane() {
     translate([0, w_unit / 2 + plate_padding_y_t, 0]) {
         translate([0, -plate_w_y / 2, -plate_h / 2]) {
-            children();
-        }
-    }
-}
-
-module translate_from_origin_to_plate_right_bottom() {
-    translate_from_origin_to_plate_left_bottom() {
-        translate([plate_w_x, 0, 0]) {
-            children();
-        }
-    }
-}
-
-module translate_from_origin_to_plate_right_row4_top() {
-    translate_from_origin_to_plate_left_top() {
-        translate([plate_w_x, -plate_padding_y_t - 3 * w_unit, 0]) {
-            children();
-        }
-    }
-}
-
-module translate_from_origin_to_plate_right_row3_top() {
-    translate_from_origin_to_plate_left_top() {
-        translate([
-            plate_padding_x_l + (1.75 + 5) * w_unit + plate_padding_x_r,
-            -plate_padding_y_t - 2 * w_unit,
-            0
-        ]) {
-            children();
-        }
-    }
-}
-
-module translate_from_origin_to_plate_right_row2_top() {
-    translate_from_origin_to_plate_left_top() {
-        translate([
-            plate_padding_x_l + (1.5 + 5) * w_unit + plate_padding_x_r,
-            -plate_padding_y_t - w_unit,
-            0
-        ]) {
-            children();
-        }
-    }
-}
-
-module translate_from_origin_to_plate_right_row1_top() {
-    translate_from_origin_to_plate_left_top() {
-        translate([plate_w_x - w_unit / 4, 0, 0]) {
             children();
         }
     }
