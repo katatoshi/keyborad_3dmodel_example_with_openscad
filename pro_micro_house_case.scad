@@ -87,3 +87,15 @@ module trrs_cube_r(w_x) {
         cube([w_x, trrs_w_y, pro_micro_house_h + spacer_h + padding_z_t], center = false);
     }
 }
+
+module pro_micro_house_left_padding_cube(w_x) {
+    translate([-w_x, 0, 0]) {
+        cube([w_x, pro_micro_house_w_y + padding_y_t, pro_micro_house_h + spacer_h + padding_z_b + padding_z_t], center = false);
+    }
+}
+
+module pro_micro_house_right_padding_cube(w_x) {
+    translate([pro_micro_house_w_x + 2 * padding_x, 0, 0]) {
+        cube([w_x, pro_micro_house_w_y + padding_y_t, pro_micro_house_h + spacer_h + padding_z_b + padding_z_t], center = false);
+    }
+}
