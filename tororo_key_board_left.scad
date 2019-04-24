@@ -28,6 +28,8 @@ plate_rotation_x = asin((keyboard_h_high - keyboard_h_low) / plate_w_y);
 
 base_cube_dz = -(plate_w_y * (keyboard_h_high + keyboard_h_low) * sin(plate_rotation_x) / (keyboard_h_high - keyboard_h_low) - plate_h * cos(plate_rotation_x)) / 2;
 
+pro_micro_dy = -1.8;
+
 keyboard();
 
 module keyboard() {
@@ -36,12 +38,12 @@ module keyboard() {
             keyboard_case();
             pro_micro();
         }
-        translate([-w_unit / 2 - plate_padding_x_l, w_unit / 2 + plate_padding_y_t - 1.5, base_cube_dz]) {
+        translate([-w_unit / 2 - plate_padding_x_l, w_unit / 2 + plate_padding_y_t + pro_micro_dy, base_cube_dz]) {
             rotate([0, 0, -90]) {
                 trrs_cube_l(2 * plate_padding_y_t);
             }
         }
-        translate([-w_unit / 2 - plate_padding_x_l, w_unit / 2 + plate_padding_y_t - 1.5, base_cube_dz]) {
+        translate([-w_unit / 2 - plate_padding_x_l, w_unit / 2 + plate_padding_y_t + pro_micro_dy, base_cube_dz]) {
             rotate([0, 0, -90]) {
                 pro_micro_cube(plate_padding_x_l, 2 * plate_padding_x_l);
             }
@@ -50,9 +52,12 @@ module keyboard() {
 }
 
 module pro_micro() {
-    translate([-w_unit / 2 - plate_padding_x_l, w_unit / 2 + plate_padding_y_t - 1.5, base_cube_dz]) {
+    translate([-w_unit / 2 - plate_padding_x_l, w_unit / 2 + plate_padding_y_t + pro_micro_dy, base_cube_dz]) {
         rotate([0, 0, -90]) {
-            pro_micro_house_case();
+            union() {
+                pro_micro_house_left_padding_cube(1);
+                pro_micro_house_case();
+            }
         }
     }
 }
