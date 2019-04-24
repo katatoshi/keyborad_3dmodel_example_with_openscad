@@ -25,6 +25,7 @@ keyboard_h_low = 10;
 keyboard_h_high = 25;
 
 plate_rotation_x = asin((keyboard_h_high - keyboard_h_low) / plate_w_y);
+echo("plate_rotation_x = ", plate_rotation_x);
 
 base_cube_dz = -(plate_w_y * (keyboard_h_high + keyboard_h_low) * sin(plate_rotation_x) / (keyboard_h_high - keyboard_h_low) - plate_h * cos(plate_rotation_x)) / 2;
 
@@ -92,9 +93,9 @@ module base_cube() {
 
 module screws() {
     dz_screw_top_1 = -8;
-    dz_screw_top_2 = -16;
+    dz_screw_top_2 = -18;
 
-    dz_screw_bottom = -4;
+    dz_screw_bottom = -6.1;
 
     // foot top
     translate([plate_padding_x_l + 3 * w_unit + w_unit / 2 , -foot_w / 2, dz_screw_top_1]) {
