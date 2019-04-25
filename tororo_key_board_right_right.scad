@@ -59,7 +59,7 @@ module pro_micro() {
         rotate([0, 0, 90]) {
             union() {
                 pro_micro_house_right_padding_cube(1);
-                pro_micro_house_case();
+                pro_micro_house_trrs_right_case();
             }
         }
     }
