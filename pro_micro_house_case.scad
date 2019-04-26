@@ -18,8 +18,8 @@ spacer_r = 1.3;
 
 spacer_scale_inverse = 10;
 
-trrs_y = 42.3;
-trrs_w_y = 8; // trrs_y + trrs_w_y >= 49.5
+trrs_y = 38.3;
+trrs_w_y = 12; // trrs_y + trrs_w_y >= 49.5
 trrs_h = 6.5;
 
 reset_switch_x = 7.5;
@@ -27,8 +27,8 @@ reset_switch_y = 34;
 reset_switch_w_x = 7;
 reset_switch_w_y = 7.5 + 1;
 
-//pro_micro_house_trrs_left_case();
-pro_micro_house_trrs_right_case();
+pro_micro_house_trrs_left_case();
+//pro_micro_house_trrs_right_case();
 
 module pro_micro_house_trrs_left_case() {
     difference() {
@@ -64,6 +64,9 @@ module pro_micro_house_trrs_left_case() {
         }
         translate([0, trrs_y, 0]) {
             cube([padding_x + reset_switch_x + reset_switch_w_x, trrs_w_y, padding_z_b + pro_micro_house_h + spacer_h + padding_z_t], center = false);
+        }
+        translate([padding_x + reset_switch_x, 0, 0]) {
+            cube([padding_x + reset_switch_x + reset_switch_w_x, pro_micro_house_w_y + padding_y_t, padding_z_b], center = false);
         }
     }
 }
@@ -105,6 +108,7 @@ module pro_micro_house_trrs_right_case() {
         translate([pro_micro_house_w_x + padding_x - (reset_switch_x + reset_switch_w_x), trrs_y, 0]) {
             cube([padding_x + reset_switch_x + reset_switch_w_x, trrs_w_y, padding_z_b + pro_micro_house_h + spacer_h + padding_z_t], center = false);
         }
+        cube([padding_x + reset_switch_x + reset_switch_w_x, pro_micro_house_w_y + padding_y_t, padding_z_b], center = false);
     }
 }
 
